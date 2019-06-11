@@ -11,18 +11,18 @@ const checkToken = (req, res, next) => {
     } else {
         //If header is undefined return Forbidden (403)
         res.sendStatus(403)
-    }
-}
-
+    };
+};
 
 const generateAccessToken = (req, res, next) => {
     req.token = req.token || {};
-    req.token = jwt.sign({id: req.user.id,}, config.passport.secretAuthToken, {
-            expiresIn: config.passport.tokenTime
-        });
+    req.token = jwt.sign({ id: req.user.id, }, config.passport.secretAuthToken, {
+        expiresIn: config.passport.tokenTime
+    });
     next();
 };
 
-
-
-module.exports = checkToken;
+module.exports = {
+    checkToken,
+    generateAccessToken
+};

@@ -11,7 +11,7 @@ module.exports = {
         'database': 'bdtareas'
     },
     'database': 'bdtareas'
-}
+};
 
 /* -------------------------------------------
                  MONGODB SET UP

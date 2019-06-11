@@ -11,6 +11,7 @@ const ApiController = () => {
 
     // Register api routes
     router.use('/users', userController);
+    router.use('/drivers', driverController);
 
     return router;
 };

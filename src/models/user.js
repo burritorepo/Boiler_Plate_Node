@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+/* let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 var User = new Schema({
@@ -17,4 +17,4 @@ var User = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('User', User);
+module.exports = mongoose.model('User', User); */
