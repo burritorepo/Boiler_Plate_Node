@@ -7,7 +7,6 @@ const init = (server) => {
     });
     
     server.use('/api', apiRoute);
-}
-module.exports = {
-    init: init
 };
+
+module.exports = init;

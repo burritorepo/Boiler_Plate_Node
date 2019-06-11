@@ -13,6 +13,7 @@ module.exports = function () {
 
     create = (config, db) => {
         let routes = require('../src/routes');
+        console.log(routes);
         // set all the server settings
         server.set('env', config.env);
         server.set('port', config.port);
@@ -42,7 +43,7 @@ module.exports = function () {
          ); */
 
         // Set up routes
-        routes.init(server);
+        routes(server);
     };
 
     start = () => {

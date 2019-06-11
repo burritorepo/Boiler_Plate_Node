@@ -5,15 +5,12 @@ const express = require('express');
 
 // Controllers
 const userController = require('../../controllers/users');
+const authController = require('../../controllers/auth');
 
-const ApiController = () => {
-    let router = express.Router();
+let router = express.Router();
 
-    // Register api routes
-    router.use('/users', userController);
-    router.use('/drivers', driverController);
+// Register api routes
+router.use('/users', userController);
+router.use('/auth', authController);
 
-    return router;
-};
-
-module.exports = ApiController;
+module.exports = router;

@@ -22,6 +22,7 @@ const get = () => async (req, res, next) => {
             'code': 'SERVER_ERROR',
             'description': 'something went wrong, Please try again'
         });
+        
     }
 }
 

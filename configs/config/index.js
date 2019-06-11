@@ -7,9 +7,7 @@ const configs = {
   production: prodConfig
 };
 
-module.exports = {
-  config: configs[type] || configs.development,
-};
+module.exports = configs[type] || configs.development;
 
 
 

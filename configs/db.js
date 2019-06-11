@@ -8,9 +8,9 @@ module.exports = {
         'host': 'localhost',
         'user': 'root',
         'password': '',
-        'database': 'bdtareas'
+        'database': 'entregodb'
     },
-    'database': 'bdtareas'
+    'database': 'entregodb'
 };
 
 /* -------------------------------------------
