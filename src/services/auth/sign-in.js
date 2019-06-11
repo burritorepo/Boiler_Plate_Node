@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const connection = mysql.createConnection(db.connection);
 
+
 const login = async (req, res) => {
   try {
     let username = await req.body.username;
@@ -14,10 +15,8 @@ const login = async (req, res) => {
     console.log('inside login',password);
 
     if (username && password) {
-      console.log('results', username);
       connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?',
         [username, password], function (error, results, fields) {
-          console.log('results', results);
           if (results.length > 0) {
 
             let token = jwt.sign({ username: username }, config.JWT.secret, {
@@ -42,7 +41,7 @@ const login = async (req, res) => {
         })
     };
   }
-  
+
   catch (error) {
     return res.status(500).json({
       'code': 'SERVER_ERROR',
