@@ -1,6 +1,12 @@
+/* -------------------------------------------
+                 MODULE DEPENDENCIES
+  ---------------------------------------------     
+*/
+
 const express = require('express');
 const mysql = require('mysql');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 module.exports = function () {
     let server = express(),
@@ -25,6 +31,9 @@ module.exports = function () {
             extended: false
         }));
 
+        // Add middleware to log client's requests
+        server.use(morgan('dev'));
+
         // add middleware to include socket.io in our response, and use it in a different file
         server.use(function (req, res, next) {
             res.io = io;
@@ -33,7 +42,9 @@ module.exports = function () {
 
         //connect the database
         const connection = mysql.createConnection(db.connection);
-
+        connection.connect();
+        
+        global.db = connection;
         /*  mongoose.connect(
              db.database,
              { 

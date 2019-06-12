@@ -12,5 +12,6 @@ let router = express.Router();
 // Register api routes
 router.use('/users', userController);
 router.use('/auth', authController);
+/* router.use('/orders', ordersController); */
 
 module.exports = router;

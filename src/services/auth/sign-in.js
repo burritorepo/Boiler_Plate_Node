@@ -1,24 +1,27 @@
+/* -------------------------------------------
+                 MODULE DEPENDENCIES
+  ---------------------------------------------     
+*/
+
 const config = require('../../../configs/config/index');
-const db = require('../../../configs/db');
-const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 
-
-const connection = mysql.createConnection(db.connection);
-
+/**
+  * @desc generates token when users sign-in
+  * @param req the request
+  * @param res the response
+  * @return token, and user[id, username, email] or failure
+*/
 
 const login = async (req, res) => {
   try {
     let username = await req.body.username;
     let password = await req.body.password;
-   
-    console.log('inside login',password);
 
     if (username && password) {
-      connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?',
+      db.query('SELECT * FROM accounts WHERE username = ? AND password = ?',
         [username, password], function (error, results, fields) {
           if (results.length > 0) {
-
             let token = jwt.sign({ username: username }, config.JWT.secret, {
               expiresIn: config.JWT.expiresIn
             });

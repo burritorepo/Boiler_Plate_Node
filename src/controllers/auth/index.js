@@ -9,11 +9,7 @@ const authService = require('../../services/auth');
 
 let router = express.Router();
 
-router.post('/sign-in', function (req,res) {
-    authService.signIn(req,res);
-    console.log(authService.signIn);
-console.log('request login');}
-    );
+router.post('/sign-in', authService.signIn);
 
 router.get('/sign-up', (req, res) => {
     res.json({
